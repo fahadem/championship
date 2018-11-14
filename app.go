@@ -5,12 +5,16 @@ import (
 	"log"
 	"net/http"
 	"encoding/json"
+  	"os"
 
 	"gopkg.in/mgo.v2/bson"
  	. "github.com/fahadem/championship/models"
  	. "github.com/fahadem/championship/dao"
 	"github.com/gorilla/mux"
 )
+
+//var config = Config{}
+var dao = LeaguesDAO{}
  
 func AllLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "not implemented yet !")
@@ -60,7 +64,7 @@ func main() {
     		log.Fatal(err)
   	}
 	r := mux.NewRouter()
-	r.HandleFunc("/league", AllMoviesEndPoint).Methods("GET")
+	r.HandleFunc("/league", AllLeaguesEndPoint).Methods("GET")
 	r.HandleFunc("/league", CreateLeagueEndPoint).Methods("POST")
 	r.HandleFunc("/league", UpdateLeagueEndPoint).Methods("PUT")
 	r.HandleFunc("/league", DeleteLeagueEndPoint).Methods("DELETE")
