@@ -44,15 +44,30 @@ func UpdateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 func DeleteLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "not implemented yet !")
 }
+
+func determineListenAddress() (string, error) {
+  port := os.Getenv("PORT")
+  if port == "" {
+    return "", fmt.Errorf("$PORT not set")
+  }
+  return ":" + port, nil
+}
  
 func main() {
+	addr, err := determineListenAddress()
+  	if err != nil {
+    		log.Fatal(err)
+  	}
 	r := mux.NewRouter()
 	r.HandleFunc("/league", AllMoviesEndPoint).Methods("GET")
 	r.HandleFunc("/league", CreateLeagueEndPoint).Methods("POST")
 	r.HandleFunc("/league", UpdateLeagueEndPoint).Methods("PUT")
 	r.HandleFunc("/league", DeleteLeagueEndPoint).Methods("DELETE")
 	r.HandleFunc("/league/{id}", FindLeagueEndpoint).Methods("GET")
-	if err := http.ListenAndServe(":3000", r); err != nil {
+	
+	log.Fatal(http.ListenAndServe(addr,nil))
+
+	/*if err := http.ListenAndServe(":3000", r); err != nil {
 		log.Fatal(err)
-	}
+	}*/
 }
