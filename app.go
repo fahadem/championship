@@ -39,7 +39,7 @@ func FindLeagueEndpoint(w http.ResponseWriter, r *http.Request) {
 func CreateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	var league League
-	if err := json.NewDecoder(r.Body).Decode(&League); err != nil {
+	if err := json.NewDecoder(r.Body).Decode(&league); err != nil {
 		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
 		return
 	}
