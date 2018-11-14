@@ -56,7 +56,7 @@ func (l *LeaguesDAO) Delete(league League) error {
 
 // Update an existing league
 func (l *LeaguesDAO) Update(league League) error {
-	err := db.C(COLLECTION).UpdateId(league.League_id, &league)
+	err := db.C(COLLECTION).UpdateId(league.LeagueID, &league)
 	return err
 }
 
