@@ -3,7 +3,7 @@ package dao
 import (
 	"log"
 
-	. "github.com/fahadem/championship"
+	. "github.com/fahadem/championship/models"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
