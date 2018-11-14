@@ -8,7 +8,7 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
-type LeagueDAO struct {
+type LeaguesDAO struct {
 	Server   string
 	Database string
 }
@@ -20,7 +20,7 @@ const (
 )
 
 // Establish a connection to database
-func (l *LeagueDAO) Connect() {
+func (l *LeaguesDAO) Connect() {
 	session, err := mgo.Dial(l.Server)
 	if err != nil {
 		log.Fatal(err)
@@ -29,14 +29,14 @@ func (l *LeagueDAO) Connect() {
 }
 
 // Find list of leagues
-func (l *LeagueDAO) FindAll() ([]League, error) {
+func (l *LeaguesDAO) FindAll() ([]League, error) {
 	var leagues []League
 	err := db.C(COLLECTION).Find(bson.M{}).All(&leagues)
 	return leagues, err
 }
 
 // Find a league by its id
-func (l *LeagueDAO) FindById(id string) (League, error) {
+func (l *LeaguesDAO) FindById(id string) (League, error) {
 	var league League
 	err := db.C(COLLECTION).FindId(bson.ObjectIdHex(id)).One(&league)
 	return league, err
