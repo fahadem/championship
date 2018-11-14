@@ -27,10 +27,10 @@ func CreateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
 		return
 	}
-	league.Country_id = bson.NewObjectId()
-	league.Country_name = "England"
-	league.League_id = bson.NewObjectId()
-	league.League_name = "Premier League"
+	league.CountryID = bson.NewObjectId()
+	league.CountryName = "England"
+	league.LeagueID = bson.NewObjectId()
+	league.LeagueName = "Premier League"
 	if err := dao.Insert(league); err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return

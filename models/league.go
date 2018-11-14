@@ -3,16 +3,16 @@ package models
 import "gopkg.in/mgo.v2/bson"
 
 type League struct {
-	Country_id	bson.ObjectId	`bson:"CountryID" json:"CountryID,omitempty"`
-	Country_name	string		`bson:"Country" json:"Country,omitempty"`
-	League_id	bson.ObjectId	`bson:"LeagueID" json:"LeagueID,omitempty"`
-	League_name	string		`bson:"League" json:"League,omitempty"`
+	CountryID	bson.ObjectId	`bson:"CountryID" json:"CountryID,omitempty"`
+	CountryName	string		`bson:"Country" json:"Country,omitempty"`
+	LeagueID	bson.ObjectId	`bson:"LeagueID" json:"LeagueID,omitempty"`
+	LeagueName	string		`bson:"League" json:"League,omitempty"`
 }
 
 /*type Team struct {
 	InfoLeague	League	`bson:"InfoLeague" json:"InfoLeague,omitempty"`
-	Team_id		bson.ObjectId	`bson:"TeamID" json:"TeamID,omitempty"`
-	Team_name	string	`bson:"Team" json:"Team,omitempty"`
+	TeamID		bson.ObjectId	`bson:"TeamID" json:"TeamID,omitempty"`
+	TeamName	string	`bson:"Team" json:"Team,omitempty"`
 }
 
 type Match struct {

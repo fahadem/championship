@@ -36,7 +36,7 @@ func (l *LeagueDAO) FindAll() ([]League, error) {
 }
 
 // Find a league by its id
-func (l *LeaguesDAO) FindById(id string) (Movie, error) {
+func (l *LeagueDAO) FindById(id string) (League, error) {
 	var league League
 	err := db.C(COLLECTION).FindId(bson.ObjectIdHex(id)).One(&league)
 	return league, err
@@ -56,7 +56,7 @@ func (l *LeaguesDAO) Delete(league League) error {
 
 // Update an existing league
 func (l *LeaguesDAO) Update(league League) error {
-	err := db.C(COLLECTION).UpdateId(league.ID, &league)
+	err := db.C(COLLECTION).UpdateId(league.League_id, &league)
 	return err
 }
 
