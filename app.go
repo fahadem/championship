@@ -102,18 +102,19 @@ func determineListenAddress() (string, error) {
 }
  
 func main() {
-	addr, err := determineListenAddress()
+	/*addr, err := determineListenAddress()
   	if err != nil {
     		log.Fatal(err)
-  	}
+  	}*/
+	port := os.Getenv("PORT")
 	r := mux.NewRouter()
 	r.HandleFunc("/league", AllLeaguesEndPoint).Methods("GET")
 	r.HandleFunc("/league", CreateLeagueEndPoint).Methods("POST")
 	r.HandleFunc("/league", UpdateLeagueEndPoint).Methods("PUT")
 	r.HandleFunc("/league", DeleteLeagueEndPoint).Methods("DELETE")
 	r.HandleFunc("/league/{id}", FindLeagueEndpoint).Methods("GET")
-	
-	log.Fatal(http.ListenAndServe(addr,nil))
+	http.ListenAndServe(":"+port, nil)
+	//log.Fatal(http.ListenAndServe(addr,nil))
 
 	/*if err := http.ListenAndServe(":3000", r); err != nil {
 		log.Fatal(err)
