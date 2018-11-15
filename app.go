@@ -29,11 +29,22 @@ func respondWithJson(w http.ResponseWriter, code int, payload interface{}) {
 
 
 func AllLeaguesEndPoint(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "not implemented yet !")
+	leagues, err := dao.FindAll()
+	if err != nil {
+		respondWithError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+	respondWithJson(w, http.StatusOK, leagues)
 }
  
 func FindLeagueEndpoint(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "not implemented yet !")
+	params := mux.Vars(r)
+	league, err := dao.FindById(params["LeagueID"])
+	if err != nil {
+		respondWithError(w, http.StatusBadRequest, "Invalid League ID")
+		return
+	}
+	respondWithJson(w, http.StatusOK, league)
 }
  
 func CreateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
@@ -55,11 +66,31 @@ func CreateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 }
  
 func UpdateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "not implemented yet !")
+	defer r.Body.Close()
+	var league League
+	if err := json.NewDecoder(r.Body).Decode(&league); err != nil {
+		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
+		return
+	}
+	if err := dao.Update(league); err != nil {
+		respondWithError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+	respondWithJson(w, http.StatusOK, map[string]string{"result": "success"})
 }
  
 func DeleteLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "not implemented yet !")
+	defer r.Body.Close()
+	var league League
+	if err := json.NewDecoder(r.Body).Decode(&league); err != nil {
+		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
+		return
+	}
+	if err := dao.Delete(league); err != nil {
+		respondWithError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+	respondWithJson(w, http.StatusOK, map[string]string{"result": "success"})
 }
 
 func determineListenAddress() (string, error) {
