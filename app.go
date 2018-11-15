@@ -8,6 +8,7 @@ import (
   	"os"
 
 	"gopkg.in/mgo.v2/bson"
+ 	. "github.com/fahadem/championship/config"
  	. "github.com/fahadem/championship/models"
  	. "github.com/fahadem/championship/dao"
 	"github.com/gorilla/mux"
