@@ -30,11 +30,13 @@ func respondWithJson(w http.ResponseWriter, code int, payload interface{}) {
 
 func AllLeaguesEndPoint(w http.ResponseWriter, r *http.Request) {
 	leagues, err := dao.FindAll()
+	http.Header.Add(w.Header(), "content-type", "application/json")
 	if err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
-	respondWithJson(w, http.StatusOK, leagues)
+	//respondWithJson(w, http.StatusOK, leagues)
+	json.NewEncoder(w).Encode(leagues)
 }
  
 func FindLeagueEndpoint(w http.ResponseWriter, r *http.Request) {
@@ -49,7 +51,7 @@ func FindLeagueEndpoint(w http.ResponseWriter, r *http.Request) {
  
 func CreateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
-	http.Header.Add(w.Header(), "content-type", "application/json")
+	//http.Header.Add(w.Header(), "content-type", "application/json")
 	var league League
 	if err := json.NewDecoder(r.Body).Decode(&league); err != nil {
 		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
@@ -63,8 +65,8 @@ func CreateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
-	//respondWithJson(w, http.StatusCreated, league)
-	json.NewEncoder(w).Encode(league)
+	respondWithJson(w, http.StatusCreated, league)
+	//json.NewEncoder(w).Encode(league)
 }
  
 func UpdateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
@@ -112,9 +114,9 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/league", AllLeaguesEndPoint).Methods("GET")
 	r.HandleFunc("/league", CreateLeagueEndPoint).Methods("POST")
-	r.HandleFunc("/league", UpdateLeagueEndPoint).Methods("PUT")
-	r.HandleFunc("/league", DeleteLeagueEndPoint).Methods("DELETE")
-	r.HandleFunc("/league/{id}", FindLeagueEndpoint).Methods("GET")
+	//r.HandleFunc("/league", UpdateLeagueEndPoint).Methods("PUT")
+	//r.HandleFunc("/league", DeleteLeagueEndPoint).Methods("DELETE")
+	//r.HandleFunc("/league/{id}", FindLeagueEndpoint).Methods("GET")
 	http.ListenAndServe(":"+port, nil)
 	//log.Fatal(http.ListenAndServe(addr,nil))
 
