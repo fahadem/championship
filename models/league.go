@@ -1,13 +1,11 @@
 package models
 
-//import "gopkg.in/mgo.v2/bson"
+import "gopkg.in/mgo.v2/bson"
 
 type League struct {
-	//CountryID	bson.ObjectId	`bson:"CountryID" json:"CountryID,omitempty"`
-	CountryID	string		`bson:"CountryID" json:"CountryID,omitempty"`
+	CountryID	bson.ObjectId	`bson:"CountryID" json:"CountryID,omitempty"`
 	CountryName	string		`bson:"Country" json:"Country,omitempty"`
-	//LeagueID	bson.ObjectId	`bson:"LeagueID" json:"LeagueID,omitempty"`
-	LeagueID	string		`bson:"LeagueID" json:"LeagueID,omitempty"`
+	LeagueID	bson.ObjectId	`bson:"LeagueID" json:"LeagueID,omitempty"`
 	LeagueName	string		`bson:"League" json:"League,omitempty"`
 }
 
