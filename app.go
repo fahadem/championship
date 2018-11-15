@@ -13,9 +13,9 @@ import (
 	"github.com/gorilla/mux"
 )
 
-//var config = Config{}
+var config = Config{}
 var dao = LeaguesDAO{}
- 
+
 func respondWithError(w http.ResponseWriter, code int, msg string) {
 	respondWithJson(w, code, map[string]string{"error": msg})
 }
@@ -95,6 +95,15 @@ func DeleteLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	respondWithJson(w, http.StatusOK, map[string]string{"result": "success"})
+}
+
+// Parse the configuration file 'config.toml', and establish a connection to DB
+func init() {
+	config.Read()
+
+	dao.Server = config.Server
+	dao.Database = config.Database
+	dao.Connect()
 }
 
 func determineListenAddress() (string, error) {
