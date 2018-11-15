@@ -49,6 +49,7 @@ func FindLeagueEndpoint(w http.ResponseWriter, r *http.Request) {
  
 func CreateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
+	http.Header.Add(w.Header(), "content-type", "application/json")
 	var league League
 	if err := json.NewDecoder(r.Body).Decode(&league); err != nil {
 		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
@@ -62,7 +63,8 @@ func CreateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
-	respondWithJson(w, http.StatusCreated, league)
+	//respondWithJson(w, http.StatusCreated, league)
+	json.NewEncoder(w).Encode(league)
 }
  
 func UpdateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
