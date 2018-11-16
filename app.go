@@ -1,7 +1,7 @@
 package main
 
 import (
-	."github.com/fahadem/championship/leaguedb"
+	"github.com/fahadem/championship/leaguedb"
 	"fmt"
 	"net/http"
 	"os"
