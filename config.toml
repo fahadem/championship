@@ -1,2 +1,2 @@
-server="chmpship.herokuapp.com"
+server="localhost"
 database="leagues_db"
