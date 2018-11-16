@@ -14,7 +14,7 @@ func champ(w http.ResponseWriter, r *http.Request) {
 func main() {
 	//in memory storage
 	leaguedb.Global_db = &leaguedb.LeaguesMongoDB{
-		DatabaseURL:           "mongodb://hugoh:6926a5b8@ds057548.mlab.com:57548/championship",
+		DatabaseURL:           "mongodb://fahadem:Basket-ball11@ds051658.mlab.com:51658/championship",
 		DatabaseName:          "championship",
 		LeaguesCollectionName: "league",
 	}
