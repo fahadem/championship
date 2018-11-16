@@ -59,9 +59,9 @@ func CreateLeagueEndPoint(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	league.CountryID = bson.NewObjectId()
-	league.CountryName = "England"
+	//league.CountryName = "England"
 	league.LeagueID = bson.NewObjectId()
-	league.LeagueName = "Premier League"
+	//league.LeagueName = "Premier League"
 	if err := dao.Insert(league); err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
