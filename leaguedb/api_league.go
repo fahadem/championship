@@ -21,9 +21,11 @@ func LeagueHandler(w http.ResponseWriter, r *http.Request) {
 
 	case "GET":
 		fmt.Fprintln(w, "not implemented yet")
+		//http.Error(w, "not implemented yet", http.StatusNotImplemented)
 
 	default:
 
 		fmt.Fprintln(w, "not implemented yet !")
+		//http.Error(w, "not implemented yet", http.StatusNotImplemented)
 	}
 }

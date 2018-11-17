@@ -1,7 +1,7 @@
 package main
 
 import (
-	."championship/leaguedb"
+	"github.com/fahadem/championship/leaguedb"
 	"fmt"
 	"net/http"
 	"os"
@@ -24,7 +24,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 
-	http.HandleFunc("/champ", champ)
-	//http.HandleFunc("/champ/league", leaguedb.LeagueHandler)
+	http.HandleFunc("/champ/", champ)
+	http.HandleFunc("/champ/league", leaguedb.LeagueHandler)
 	http.ListenAndServe(":"+port, nil)
 }
