@@ -5,13 +5,10 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"endoding/json"
 )
 
 func champ(w http.ResponseWriter, r *http.Request) {
-	//fmt.Fprintln(w, "api for championship league")
-	http.Header.Add(w.Header(), "content-type", "application/json")
-	json.NewEncoder(w).Encode("api for championship league")
+	fmt.Fprintln(w, "api for championship league")
 }
 
 func main() {
