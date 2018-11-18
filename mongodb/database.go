@@ -17,7 +17,7 @@ type League struct {
 	Name     string        `json:"name"`
 	Country  string        `json:"country"`
 	LeagueId string        `json:"leagueid"`
-	Teams 	 Team          `json:"teams"`
+	Teams 	 Team[]          `json:"teams"`
 }
 
 type MongoDB struct {
