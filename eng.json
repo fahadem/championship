@@ -10,7 +10,80 @@
 		{
 			"name":"Arsenal",
 			"teamid":"ARS"
-		}
+		},
+		{
+			"name":"Tottenham Hotspur",
+			"teamid":"TOT"
+		},
+		{
+			"name":"West Ham United",
+			"teamid":"WHU"
+		},		
+		{
+			"name":"Crystal Palace",
+			"teamid":"CRY"
+		},
+		{
+			"name":"Manchester United",
+			"teamid":"MUN"
+		},
+		{
+			"name":"Manchester City",
+			"teamid":"MCI"
+		},
+		{
+			"name":"Everton",
+			"teamid":"EVE"
+		},
+		{
+			"name":"Liverpool",
+			"teamid":"LIV"
+		},
+		{
+			"name":"West Bromwich Albion",
+			"teamid":"WBA"
+		},		
+		{
+			"name":"Newcastle United",
+			"teamid":"NEW"
+		},
+		{
+			"name":"Stoke City",
+			"teamid":"STK"
+		},
+		{
+			"name": "Southampton",
+      			"teamid": "SOU"
+    		},
+    		{
+      			"name": "Leicester City",
+      			"teamid": "LEI"
+    		},
+   		{
+     			"name": "Bournemouth",
+      			"teamid": "BOU"
+    		},
+    		{
 
+		   	"name": "Watford",
+		   	"teamid": "WAT"
+    		},
+    		{
+		    	"name": "Brighton & Hove Albion",
+      			"teamid": null
+  		},
+    		{
+	  		"name": "Burnley",
+      			"teamid": "BUR"
+    		},
+    		{
+
+      			"name": "Huddersfield Town",
+      			"teamid": null
+    		},
+    		{
+			"name": "Swansea",
+      			"teamid": "SWA"
+		}
 	]
 }
