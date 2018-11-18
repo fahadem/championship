@@ -5,10 +5,16 @@ type LeaguesStorage interface {
 	Add(l League) error
 }
 
+type Team struct {
+	Name 	string `json:"name"`
+	TeamID 	string `json:"clubid"`
+}
+
 type League struct {
 	Name     string `json:"name"`
 	Country  string `json:"country"`
 	LeagueID string `json:"leagueid"`
+	Teams 	 Team   `json:"teams"`
 }
 
 type LeaguesDB struct {

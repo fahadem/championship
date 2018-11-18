@@ -1,0 +1,16 @@
+{
+	"name":"Premier League", 
+	"country":"England",
+	"leagueid":"PL",
+	"teams": [
+		{
+			"name":"Chelsea",
+			"teamid":"CHE"
+		},
+		{
+			"name":"Arsenal",
+			"teamid":"ARS"
+		}
+
+	]
+}

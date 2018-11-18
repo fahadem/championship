@@ -7,11 +7,17 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
+type Club struct {
+	Name 	string `json:"name"`
+	ClubID 	string `json:"clubid"`
+}
+
 type League struct {
 	ID       bson.ObjectId `bson:"_id,omitempty"`
 	Name     string        `json:"name"`
 	Country  string        `json:"country"`
 	LeagueId string        `json:"leagueid"`
+	Clubs 	 Club          `json:"clubs"`
 }
 
 type MongoDB struct {
