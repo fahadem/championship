@@ -9,7 +9,7 @@ import (
 
 type Team struct {
 	Name 	string `json:"name"`
-	TeamID 	string `json:"teamid"`
+	Code 	string `json:"code"`
 }
 
 type League struct {
