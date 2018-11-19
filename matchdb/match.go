@@ -30,7 +30,7 @@ type Round struct {
 type MatchesL struct {
 	Name      string  `json:"name"`
 	LeagueID  string  `json:"leagueid"`
-	Rounds	  Round  `json:"rounds"`
+	Rounds	  []Round  `json:"rounds"`
 }
 
 
