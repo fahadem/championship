@@ -42,6 +42,6 @@ func main() {
 	http.HandleFunc("/champ/leagues/", leaguedb.LeagueHandler)
 	http.HandleFunc("/champ/webhookL/", leaguedb.WebhookLeagueHandler) //POST & GET
 	http.HandleFunc("/champ/matches/", matchdb.MatchHandler)
-	http.HandleFunc("/champ/webhookM/", matchdb.WebhookHandler) //POST & GET
+	http.HandleFunc("/champ/webhookM/", matchdb.WebhookMatchHandler) //POST & GET
 	http.ListenAndServe(":"+port, nil)
 }
