@@ -2,7 +2,7 @@ package matchdb
 
 type MatchesStorage interface {
 	Init()
-	Add(l League) error
+	Add(m MatchesL) error
 	Get(key string) (MatchesL, bool)
 	DisplayMatches() MatchesL
 
