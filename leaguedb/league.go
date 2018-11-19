@@ -39,7 +39,7 @@ func (db *LeaguesDB) Get(keyID string) (League, bool) {
 	return l, ok
 }
 
-func (db *LeaguesDB) DisplayLeagueName() string {
+/*func (db *LeaguesDB) DisplayLeagueName() string {
 	str := ""
 	for _, l := range db.leagues {
 		str = str + l.Name
@@ -47,7 +47,7 @@ func (db *LeaguesDB) DisplayLeagueName() string {
 	return str
 }
 
-/*func (db *LeaguesDB) findTeam(team string) string {
+func (db *LeaguesDB) findTeam(team string) string {
 	str := "Your team is not in the database"
 	for _, l := range db.leagues {
 		for _, t := range l.Teams {
