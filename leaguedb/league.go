@@ -4,7 +4,7 @@ type LeaguesStorage interface {
 	Init()
 	Add(l League) error
 	Get(key string) (League, bool)
-	DisplayLeagueName() League
+	DisplayLeague() League
 	//FindTeam(team string) string
 }
 

@@ -51,18 +51,57 @@ func LeagueHandler(w http.ResponseWriter, r *http.Request) {
 
 	case "GET":
 		http.Header.Add(w.Header(), "content-type", "application/json")
-		//parts := strings.Split(r.URL.Path, "/")
+		parts := strings.Split(r.URL.Path, "/")
 		switch {
 		case pathLeague.MatchString(r.URL.Path):
 			{
 
-				fmt.Fprint(w, Global_db.DisplayLeagueName())
+				fmt.Fprint(w, Global_db.DisplayLeague())
 			}
-			/*case pathTeamid.MatchString(r.URL.Path):
+		case pathidfield.MatchString(r.URL.Path):
 			{
-				teamName := parts[4]
-				fmt.Fprint(w, Global_db.FindTeam(teamName))
-			}*/
+				var l League
+				id := parts[3]
+				infoWanted := parts[4]
+				l, ok := Global_db.Get(id)
+				if !ok {
+					// TODO find a better Error Code (HTTP Status)
+					http.Error(w, "League don't exists.", http.StatusBadRequest)
+					return
+				}
+				switch infoWanted {
+				case "country":
+					{
+						fmt.Fprint(w, l.Country)
+					}
+				case "leagueID":
+					{
+						fmt.Fprint(w, l.LeagueID)
+					}
+				case "name":
+					{
+						fmt.Fprint(w, l.Name)
+					}
+				case "teams":
+					{
+						fmt.Fprint(w, l.Teams)
+					}
+				default:
+					fmt.Fprint(w, "Not found")
+
+				}
+			}
+		case pathid.MatchString(r.URL.Path):
+			{
+				id := parts[3]
+				l, ok := Global_db.Get(id)
+				if !ok {
+					// TODO find a better Error Code (HTTP Status)
+					http.Error(w, "League don't exists.", http.StatusBadRequest)
+					return
+				}
+				json.NewEncoder(w).Encode(l)
+			}
 
 		}
 
@@ -79,7 +118,6 @@ func WebhookHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "POST":
 		{
-			//fmt.Fprintln(w, "wh")
 			var wh webhook
 			//TODO check correct wh format
 			err := json.NewDecoder(r.Body).Decode(&wh)
@@ -118,4 +156,5 @@ func InitWh() {
 
 var pathwhID, _ = regexp.Compile("/champ/webhook/id[0-9]+$")
 var pathLeague, _ = regexp.Compile("/champ/leagues[/]{1}$")
-var pathTeamid, _ = regexp.Compile("/champ/leagues/[A-Z]{3}$")
+var pathidfield, _ = regexp.Compile("/champ/leagues/id[0-9]+/(country$|name$|leagueID$|teams$)")
+var pathid, _ = regexp.Compile("/champ/leagues/id[0-9]+$")
