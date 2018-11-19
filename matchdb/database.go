@@ -3,7 +3,7 @@ package matchdb
 import (
 	"encoding/json"
 	"fmt"
-
+	"os"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
