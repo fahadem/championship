@@ -90,16 +90,16 @@ func (db *MatchesMongoDB) DisplayMatches() string {
 	return string(out)
 }
 
-/*func (db *MatchesMongoDB) RemoveDocument(keyID string) {
+func (db *MatchesMongoDB) RemoveDocument(keyID string) {
 	session, err := mgo.Dial(db.DatabaseURL)
 	if err != nil {
 		panic(err)
 	}
 	defer session.Close()
 	//allWasGood := true
-	err = session.DB(db.DatabaseName).C(db.MatchesCollectionName).Remove(bson.M{"leagueID": keyID})
+	err = session.DB(db.DatabaseName).C(db.MatchesCollectionName).Remove(bson.M{"leagueid": keyID})
 	if err != nil {
 		fmt.Printf("remove fail %v\n", err)
 		os.Exit(1)
 	}
-}*/
+}
