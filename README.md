@@ -1,8 +1,8 @@
 # championship
 
-Build RESTful API in Go and MongoDB. 
-
-The REST API service will expose endpoints to manage a store of leagues and teams. It use also webhook to notify when a league or matches for a league are added.
+Build RESTful API in Go and MongoDB
+The REST API service will expose endpoints to manage a store of leagues and teams.
+The API will allow to see data on leagues, teams and matchs.The API will also allow to receive alerts when new data are added using Slack and webhooks via a registration.
 
 The app url is https://chmpship.herokuapp.com/ .
 
