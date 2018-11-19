@@ -244,10 +244,10 @@ func InitWh() {
 
 }
 
-var pathwhID, _ = regexp.Compile("/champ/webhook/id[0-9]+$")
-var pathMatchs, _ = regexp.Compile("/champ/matchs/$")
-var pathMatchsID, _ = regexp.Compile("/champ/matchs/id[0-9]+$")
-var pathMatchday, _ = regexp.Compile("/champ/matchs/id[0-9]+/matchday[0-9]+$")
-var pathMatchsFields, _ = regexp.Compile("/champ/matchs/id[0-9]+/(name$|leagueID$|rounds$)")
-var pathMatchFields, _ = regexp.Compile("/champ/matchs/id[0-9]+/matchday[0-9]+/(date$|team1$|team2$|score1|score2)")
-var pathDel, _ = regexp.Compile("/champ/matchs/delete/id[0-9]+$")
+var pathwhID, _ = regexp.Compile("/champ/webhookM/id[0-9]+$")
+var pathMatchs, _ = regexp.Compile("/champ/matches/$")
+var pathMatchsID, _ = regexp.Compile("/champ/matches/id[0-9]+$")
+var pathMatchday, _ = regexp.Compile("/champ/matches/id[0-9]+/matchday[0-9]+$")
+var pathMatchsFields, _ = regexp.Compile("/champ/matches/id[0-9]+/(name$|leagueID$|rounds$)")
+var pathMatchFields, _ = regexp.Compile("/champ/matches/id[0-9]+/matchday[0-9]+/(date$|team1$|team2$|score1|score2)")
+var pathDel, _ = regexp.Compile("/champ/matches/delete/id[0-9]+$")
