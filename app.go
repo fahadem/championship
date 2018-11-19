@@ -30,7 +30,7 @@ func main() {
 	matchdb.Global_db = &matchdb.MatchesMongoDB{
 		DatabaseURL:           "mongodb://fahadem:269093f@ds051658.mlab.com:51658/championship",
 		DatabaseName:          "championship",
-		MatchesCollectionName: "eng",
+		MatchesCollectionName: "matches",
 	}
 
 	//mongodb storage
