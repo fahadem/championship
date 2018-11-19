@@ -22,7 +22,7 @@ type Match struct {
 	Score2	int64  `json:"score2"`
 }
 
-type Rounds struct {
+type Round struct {
 	Name 	string  `json:"name"`
 	Matches []Match `json:"matches"`
 }
@@ -30,7 +30,7 @@ type Rounds struct {
 type MatchesL struct {
 	Name      string  `json:"name"`
 	LeagueID  string  `json:"leagueid"`
-	Rounds	  Rounds  `json:"rounds"`
+	Rounds	  Round  `json:"rounds"`
 }
 
 
