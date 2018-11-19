@@ -1,4 +1,4 @@
-package leaguedb
+package matchdb
 
 type MatchesStorage interface {
 	Init()
