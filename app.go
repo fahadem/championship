@@ -18,8 +18,8 @@ func main() {
 
 	//in memory storage
 	leaguedb.Global_db = &leaguedb.LeaguesMongoDB{
-		DatabaseURL:           "mongodb://fahadem:269093f@ds051658.mlab.com:51658/championship",
-		DatabaseName:          "championship",
+		DatabaseURL:           "",
+		DatabaseName:          "",
 		LeaguesCollectionName: "league",
 	}
 
